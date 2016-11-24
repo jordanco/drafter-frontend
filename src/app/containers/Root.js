@@ -1,32 +1,36 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Provider } from 'react-redux';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+
+import Layout from '../components/Layout';
+import Home from '../components/Home';
 import App from './App';
 
-const Root = ({ store }) => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
 
-Root.propTypes = {
-  store: PropTypes.object.isRequired
-};
 
-export default Root;
 
-/*
-export default class Root extends Component {
+class Root extends Component {
   static propTypes = {
     store: PropTypes.object.isRequired
   };
 
   render() {
     const { store } = this.props;
+    const history = syncHistoryWithStore(hashHistory, store);
+
     return (
       <Provider store={store}>
-        <App />
+        <Router history={history}>
+          <Route path="/" component={Layout}>
+            <IndexRoute component={Home} />
+            <Route path="/home" component={Home} />
+          </Route>
+        </Router>
       </Provider>
     );
   }
 }
-*/
+
+export default Root;

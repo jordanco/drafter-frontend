@@ -38,7 +38,7 @@ export default function configureStore(callback, isBg) {
         );
       }
     }
-
+    
     return store;
   }, callback);
 }
