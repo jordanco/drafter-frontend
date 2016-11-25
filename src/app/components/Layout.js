@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
-import './Layout.css';
+import '../../assets/css/normalize.css';
+import '../../assets/css/webflow.css';
+import '../../assets/css/drafter2.webflow.css';
+
+import ActionSidebarMenu from '../components/menu/action-sidebar';
 
 export default (props) => {
     return (
-        <div>
-            <h1>HELLO FROM LAYOUT</h1>
+        <div className="master">
+            <ActionSidebarMenu />
             {props.children}
         </div>
     );
