@@ -7,7 +7,7 @@ export default () => {
           <div className="inbox-scrollbox">
             <div className="v1">
               <div className="inbox-header-holder">
-                <img className="inbox-image" sizes="100vw" src="images/Teal-Logo-outline.png" srcset="images/Teal-Logo-outline-p-500x733.png 500w, images/Teal-Logo-outline-p-800x1173.png 800w, images/Teal-Logo-outline-p-1080x1583.png 1080w, images/Teal-Logo-outline-p-1600x2345.png 1600w, images/Teal-Logo-outline.png 1944w"/>
+                <img className="inbox-image" sizes="100vw" src="img/Teal-Logo-outline.png" srcset="images/Teal-Logo-outline-p-500x733.png 500w, images/Teal-Logo-outline-p-800x1173.png 800w, images/Teal-Logo-outline-p-1080x1583.png 1080w, images/Teal-Logo-outline-p-1600x2345.png 1600w, images/Teal-Logo-outline.png 1944w"/>
                 <div className="search-block"></div>
               </div>
               <div className="inbox-block"><span className="hello">Alex</span><span className="hello2">, good morning.</span>
@@ -110,7 +110,7 @@ export default () => {
             </div>
             <div className="v2">
               <div className="inbox-header-holder">
-                <img className="inbox-image" sizes="68.234375px" src="images/Teal-Logo-outline.png" srcset="images/Teal-Logo-outline-p-500x733.png 500w, images/Teal-Logo-outline-p-800x1173.png 800w, images/Teal-Logo-outline-p-1080x1583.png 1080w, images/Teal-Logo-outline-p-1600x2345.png 1600w, images/Teal-Logo-outline.png 1944w"/>
+                <img className="inbox-image" sizes="68.234375px" src="img/Teal-Logo-outline.png" srcset="images/Teal-Logo-outline-p-500x733.png 500w, images/Teal-Logo-outline-p-800x1173.png 800w, images/Teal-Logo-outline-p-1080x1583.png 1080w, images/Teal-Logo-outline-p-1600x2345.png 1600w, images/Teal-Logo-outline.png 1944w"/>
                 <div className="search-block"></div>
               </div>
               <div className="inbox-block"><span className="hello">Alex</span><span className="hello2">, good morning.</span>

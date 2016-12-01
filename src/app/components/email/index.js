@@ -6,7 +6,7 @@ export default () => {
           <div className="profile">
             <div className="profile-jp">
               <div className="side-profile">
-                <img className="profile-image" src="images/profilePicJonathan.png" />
+                <img className="profile-image" src="img/profilePicJonathan.png" />
                 <div className="minibio">Head of Sales USA at Unilever</div>
                 <div className="contact-details">Investor at &nbsp;Pretty Good
                   <br/>Advisor at &nbsp;Salezy
@@ -15,15 +15,15 @@ export default () => {
                   <br/>johnp72@gmail.com
                   <br/>+1 415 732 123</div>
                 <div className="connect-button">
-                  <img className="li-connect-image" sizes="100vw" src="images/linkedin-1.png" srcset="images/linkedin-1-p-500x500.png 500w, images/linkedin-1.png 512w"/>
+                  <img className="li-connect-image" sizes="100vw" src="img/linkedin-1.png" srcSet="img/linkedin-1-p-500x500.png 500w, img/linkedin-1.png 512w"/>
                   <div>Click to connect</div>
                 </div>
                 <div className="vip-button">
-                  <img className="_20 li-connect-image" sizes="100vw" src="images/award.png" srcset="images/award-p-500x500.png 500w, images/award.png 512w"/>
+                  <img className="_20 li-connect-image" sizes="100vw" src="img/award.png" srcSet="img/award-p-500x500.png 500w, img/award.png 512w"/>
                   <div>Set as VIP</div>
                 </div>
                 <div className="merge">
-                  <img className="li-connect-image" sizes="100vw" src="images/arrows-merge-pointing-to-right.png" srcset="images/arrows-merge-pointing-to-right-p-500x500.png 500w, images/arrows-merge-pointing-to-right.png 512w"/>
+                  <img className="li-connect-image" sizes="100vw" src="img/arrows-merge-pointing-to-right.png" srcset="img/arrows-merge-pointing-to-right-p-500x500.png 500w, img/arrows-merge-pointing-to-right.png 512w"/>
                   <div>Merge contact</div>
                 </div>
               </div>
@@ -32,21 +32,21 @@ export default () => {
             </div>
             <div className="profile---jb">
               <div className="side-profile">
-                <img className="profile-image" src="images/128-7.jpg"/>
+                <img className="profile-image" src="img/128-7.jpg"/>
                 <div className="minibio">HR Manager at Company.com</div>
                 <div className="contact-details">
                   <br/>james@company.com
                   <br/>+44 7742 77 98 80</div>
                 <div className="connect-button">
-                  <img className="li-connect-image" sizes="(max-width: 767px) 15px, (max-width: 991px) 2vw, 15px" src="images/linkedin-1.png" srcset="images/linkedin-1-p-500x500.png 500w, images/linkedin-1.png 512w"/>
+                  <img className="li-connect-image" sizes="(max-width: 767px) 15px, (max-width: 991px) 2vw, 15px" src="img/linkedin-1.png" srcset="img/linkedin-1-p-500x500.png 500w, img/linkedin-1.png 512w"/>
                   <div>Click to connect</div>
                 </div>
                 <div className="vip-button">
-                  <img className="_20 li-connect-image" sizes="20px" src="images/award.png" srcset="images/award-p-500x500.png 500w, images/award.png 512w"/>
+                  <img className="_20 li-connect-image" sizes="20px" src="img/award.png" srcset="img/award-p-500x500.png 500w, images/award.png 512w"/>
                   <div>Set as VIP</div>
                 </div>
                 <div className="merge">
-                  <img className="li-connect-image" sizes="(max-width: 767px) 15px, (max-width: 991px) 2vw, 15px" src="images/arrows-merge-pointing-to-right.png" srcset="images/arrows-merge-pointing-to-right-p-500x500.png 500w, images/arrows-merge-pointing-to-right.png 512w"/>
+                  <img className="li-connect-image" sizes="(max-width: 767px) 15px, (max-width: 991px) 2vw, 15px" src="img/arrows-merge-pointing-to-right.png" srcset="img/arrows-merge-pointing-to-right-p-500x500.png 500w, img/arrows-merge-pointing-to-right.png 512w"/>
                   <div>Merge contact</div>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default () => {
                 </div>
                 <div className="subject-experiment">Subject: An interesting Proposal</div>
                 <div className="experiement-bubble">
-                  <img className="conv-image" sizes="100vw" src="images/Alex.jpg" srcset="images/Alex-p-500x500.jpeg 500w, images/Alex-p-800x800.jpeg 800w, images/Alex.jpg 810w"/>
+                  <img className="conv-image" sizes="100vw" src="img/Alex.jpg" srcset="img/Alex-p-500x500.jpeg 500w, img/Alex-p-800x800.jpeg 800w, images/Alex.jpg 810w"/>
                   <div className="email-body-temp"><strong className="name">Alex Foster</strong> <span className="date-temp">4 days ago</span>
                     <br/>Hi John, <span className="smaller-para-inline">I</span> hope you don't mind me reaching out. I wanted to know if you would be able to tell me who is in charge of HR at DreamySaaS.
                     <br/>
@@ -157,14 +157,14 @@ export default () => {
                     <br/> We have a tool that can manage all of your HR needs from one simple platform and I'm interested in seeing whether it would be a good fit for DreamySaaS.</div>
                 </div>
                 <div className="experiement-bubble">
-                  <img className="conv-image" sizes="100vw" src="images/Alex.jpg" srcset="images/Alex-p-500x500.jpeg 500w, images/Alex-p-800x800.jpeg 800w, images/Alex.jpg 810w"/>
+                  <img className="conv-image" sizes="100vw" src="img/Alex.jpg" srcset="img/Alex-p-500x500.jpeg 500w, img/Alex-p-800x800.jpeg 800w, images/Alex.jpg 810w"/>
                   <div className="email-body-temp w-clearfix"><strong>Alex Foster</strong> <span className="date-temp">2 days ago</span>
                     <br/>Hi John, I didn’t hear back from you last week when I was looking for the appropriate person managing your HR.&nbsp;
                     <br/>
                     <br/>That’s not a problem.   If it makes sense to talk, let me know how your calendar looks. If not, who is the appropriate person?</div>
                 </div>
                 <div className="experiement-bubble">
-                  <img className="conv-image" src="images/128-7.jpg"/>
+                  <img className="conv-image" src="img/128-7.jpg"/>
                   <div className="email-body-temp w-clearfix"><strong>James Brown</strong> <span className="date-temp">Today 9:01AM</span>
                     <br/>Hi Alex, I am the relevant person.
                     <br/>
