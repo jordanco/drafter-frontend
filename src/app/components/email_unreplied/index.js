@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 export default () => {
     return (
@@ -16,7 +17,8 @@ export default () => {
               <div className="vip-block"><span className="temp-large">VIPs to reply to:</span>
                 <br/>
                 <br/>Reply to these 3 VIP contacts <span className="red">asap</span>. (?)
-                <br/><span className="person-inbox" data-ix="inbox-person-actions-default"> 🎖&nbsp;&nbsp;John Pritchard <span data-ix="hide-initial-100-opacity" className="job-title-inbox">2m ago, Unilever, Head of Sales USA</span>
+                <br/>
+                <span className="person-inbox" data-ix="inbox-person-actions-default"> 🎖&nbsp;&nbsp;John Pritchard <span data-ix="hide-initial-100-opacity" className="job-title-inbox">2m ago, Unilever, Head of Sales USA</span>
                 <br/>
                 </span><span className="person-inbox" data-ix="inbox-person-actions-default">🎖&nbsp;&nbsp;Oliver Jones <span xmlns="http://www.w3.org/1999/xhtml" data-ix="hide-initial-100-opacity" className="job-title-inbox">17m ago, Samsung, CMO</span>
                 <br/>
@@ -116,11 +118,16 @@ export default () => {
                 <br/>Let's get you through your emails.
                 <br/>I've prioritised what I think you need to do below.</div>
               <div className="var vip-block">Reply to these 3 VIP contacts <span className="red">asap</span>. (?)
-                <br/><span className="person-inbox" data-ix="inbox-person-actions-default"> 🎖&nbsp;&nbsp;John Pritchard <span data-ix="hide-initial-100-opacity" className="job-title-inbox">2m ago, Unilever, Head of Sales USA</span>
                 <br/>
-                </span><span className="person-inbox" data-ix="inbox-person-actions-default-2">🎖&nbsp;&nbsp;Oliver Jones <span xmlns="http://www.w3.org/1999/xhtml" data-ix="hide-initial-100-opacity" className="job-title-inbox">17m ago, Samsung, CMO</span>
+                <Link to="/home/email/123">
+                    <span className="person-inbox" data-ix="inbox-person-actions-default"> 🎖&nbsp;&nbsp;John Pritchard <span data-ix="hide-initial-100-opacity" className="job-title-inbox">2m ago, Unilever, Head of Sales USA</span></span>
+                </Link>
                 <br/>
-                </span><span className="person-inbox" data-ix="inbox-person-actions-default">🎖&nbsp;&nbsp;Gerrard Manning&nbsp;<span xmlns="http://www.w3.org/1999/xhtml" data-ix="hide-initial-100-opacity" className="job-title-inbox">1h&nbsp;ago,&nbsp;Facebook,&nbsp;Marketing</span></span>
+                <Link to="/home/email/12345">
+                    <span className="person-inbox" data-ix="inbox-person-actions-default-2">🎖&nbsp;&nbsp;Oliver Jones <span xmlns="http://www.w3.org/1999/xhtml" data-ix="hide-initial-100-opacity" className="job-title-inbox">17m ago, Samsung, CMO</span></span>
+                </Link>
+                <br/>
+                <span className="person-inbox" data-ix="inbox-person-actions-default">🎖&nbsp;&nbsp;Gerrard Manning&nbsp;<span xmlns="http://www.w3.org/1999/xhtml" data-ix="hide-initial-100-opacity" className="job-title-inbox">1h&nbsp;ago,&nbsp;Facebook,&nbsp;Marketing</span></span>
               </div>
               <div className="inbox-block-2 var">Reply to these 4 new leads <span className="red">asap</span>. (?)
                 <br/><span className="person-inbox">🌱&nbsp;&nbsp;Jacob Frost <span className="job-title-inbox">(Yesterday)&nbsp;</span></span>

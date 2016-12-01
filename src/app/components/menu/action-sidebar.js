@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router';
 
 export default () => {
     return (
         <div className="action-bar" data-ix="hide-initial-off-600-left">
-            <img className="logo-in-action-bar" src="img/Teal_Symbol.png"/>
+            <Link to="/home" >
+              <img className="logo-in-action-bar" src="img/Teal_Symbol.png" />
+            </Link>
             <div className="actionbar-main-buttons-holder">
-                <div className="actionbar-button-holder">
-                  <img className="action-bar-icon" data-ix="contacts-view" sizes="30px" src="img/contacts-icon.png" srcset="img/contacts-icon-p-500x500.png 500w, img/contacts-icon.png 512w"/>
-                  <div className="actionbar-helper">Contacts&nbsp;/&nbsp;Relationships</div>
-                </div>
+                <Link to="/contact" >
+                  <div className="actionbar-button-holder">
+                    <img className="action-bar-icon" data-ix="contacts-view" sizes="30px" src="img/contacts-icon.png" srcset="img/contacts-icon-p-500x500.png 500w, img/contacts-icon.png 512w"/>
+                    <div className="actionbar-helper">Contacts&nbsp;/&nbsp;Relationships</div>
+                  </div>
+                </Link>
                 <div className="actionbar-button-holder"><img className="action-bar-icon" data-ix="contacts-view" src="img/User-heart.png"/>
                   <div className="actionbar-helper v3">Upload&nbsp;Contacts</div>
                 </div>
