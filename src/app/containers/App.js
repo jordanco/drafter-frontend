@@ -27,7 +27,7 @@ const App = ({ store }) => {
    const history = syncHistoryWithStore(hashHistory, store);
    return (
        <Router history={history}>
-          <Route path="/" component={Layout}>
+          <Route path="/" component={Layout} >
             <IndexRoute component={Pages.Home} />
             <Route path="/home" component={Pages.Home} />
             <Route key="home.email" path="/home/email/:id" component={Pages.Home} />

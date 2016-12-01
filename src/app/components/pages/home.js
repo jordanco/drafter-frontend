@@ -5,6 +5,8 @@ import EmailUnreplied from '../email_unreplied/index'
 import Email from '../email/index'
 import EmailSuggestion from '../email_suggestion/index'
 
+// for not global organization bind here container and component
+// load here containers
 
 export default (props) => {
     console.log('Home',props)
