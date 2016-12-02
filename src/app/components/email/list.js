@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import ListItem from './list-item'
 
-const List = ({ messages, onTodoClick }) => (
+const List = ({ messages }) => (
   <div className="bubbles">
-    {todos.map(messages =>
+    { messages.map(message =>
         <ListItem
           key={message.id}
-          {..message}
+          {...message}
         />
     )}
   </div>
