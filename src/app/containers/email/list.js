@@ -55,7 +55,7 @@ const testMessages = {
     }
 }
 
-const getList = (thread_message = testMessages.thread_message, messages = testMessages.messages, filter) => {
+const getList = (messages = testMessages.messages, filter) => {
 
     switch(filter){
         //  THIS SHOULD BE IN CONST LIKE ACTION NAMES
