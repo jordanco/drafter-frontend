@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { FormattedRelative } from 'react-intl'
 
 const ListItem = ({ timestamp, from, inbound, subject, body }) => (
     <div className={ inbound ? "bubble-lhs-holder" : "bubble-rhs-holder" }>
@@ -7,7 +8,7 @@ const ListItem = ({ timestamp, from, inbound, subject, body }) => (
             <br/>
             { body.body }
         </div>
-        <div className="bubble-metadata">Today 1:52pm</div>
+        <div className="bubble-metadata"><FormattedRelative value={timestamp} units="day"/></div>
     </div>
 )
 

@@ -8,7 +8,7 @@ const testMessages = {
     messages:  [ 
         {
             "id": "ID MUST BE SET MESSAGES 1",
-            "timestamp" : "1480341978000",
+            "timestamp" : 1480952815732,
             "from" : {
                 "emailAddress" : "jane@test.com",
                 "name" : "Jane Doe"
@@ -28,7 +28,7 @@ const testMessages = {
         },
         {
             "id": "ID MUST BE SET MESSAGES 2",
-            "timestamp" : "1480346277000",
+            "timestamp" : 1480346277000,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith"
