@@ -4,79 +4,106 @@ import List from '../../components/email_unreplied/list'
 console.log(List);
 
 const testMessages = {
-    filter: 'LIST_ALL',
-    messages:  [ 
-        {
-            "id": "528628",
-            "timestamp" : "1480341978000",
-            "from" : {
-                "emailAddress" : "jane@test.com",
-                "name" : "Jane Doe"
+    messages_unreplied: {  
+        'today':[ 
+            {
+                "id": "528628",
+                "timestamp" : "1480341978000",
+                "from" : {
+                    "emailAddress" : "jane@test.com",
+
+                },
+                "inbound" : false,
+                "subject" : "Quick Call",
+                "title" : "kate",
+                
+                "body" : {
+                    "whole" : "Hi Chris,\nGot a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane\n",
+                    "body" : "Got a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane",
+                    "greeting" : "Hi Chris,",
+                    "signature" : "--   \n\n\nJane Doe | Chief Executive Officer | XCorp",
+                    "signoff" : ""
+                }
+                
+            
             },
-            "inbound" : false,
-            "subject" : "Quick Call",
-            "title" : "kate",
+            {
+                "id": "2582582",
+                "timestamp" : "1480346277000",
+                "from" : {
+                    "emailAddress" : "chris.smith@test.com",
+                    "name" : "Chris Smith"
+                },
+                "inbound" : true,
+                "subject" : "RE: Quick Call",
+                "title" : "kate11",
+                
+                "body" : {
+                    "whole" : "\nYes - am free until 3.30.\n\nC.\n",
+                    "body" : "Yes - am free until 3.30.\n\nC.",
+                    "greeting" : "",
+                    "signature" : null,
+                    "signoff" : ""
+                }
+            } 
+        ],
+        'yesterday':[ 
+            {
+                "id": "528628",
+                "timestamp" : "1480341978000",
+                "from" : {
+                    "emailAddress" : "jane@test.com",
+                    "name" : "Jane Doe 1"
+                },
+                "inbound" : false,
+                "subject" : "Quick Call",
+                "title" : "kate",
+                
+                "body" : {
+                    "whole" : "Hi Chris,\nGot a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane\n",
+                    "body" : "Got a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane",
+                    "greeting" : "Hi Chris,",
+                    "signature" : "--   \n\n\nJane Doe | Chief Executive Officer | XCorp",
+                    "signoff" : ""
+                }
+                
             
-            "body" : {
-                "whole" : "Hi Chris,\nGot a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane\n",
-                "body" : "Got a minute to chat about what happens to employee options on a sale?\n\n  \n\n\nJane",
-                "greeting" : "Hi Chris,",
-                "signature" : "--   \n\n\nJane Doe | Chief Executive Officer | XCorp",
-                "signoff" : ""
-            }
-            
-        
-        },
-        {
-            "id": "2582582",
-            "timestamp" : "1480346277000",
-            "from" : {
-                "emailAddress" : "chris.smith@test.com",
-                "name" : "Chris Smith"
             },
-            "inbound" : true,
-            "subject" : "RE: Quick Call",
-            "title" : "kate11",
-            
-            "body" : {
-                "whole" : "\nYes - am free until 3.30.\n\nC.\n",
-                "body" : "Yes - am free until 3.30.\n\nC.",
-                "greeting" : "",
-                "signature" : null,
-                "signoff" : ""
-            }
-        } 
-    ],
-    thread_message: {  
-        "subject" : "This is another test",
-        "timestamp" : "1480341978000",
-        "sender" : {
-            "emailAddress" : "jane@test.com",
-            "name" : "Jane Doe"
-        }
-    }
+            {
+                "id": "2582582",
+                "timestamp" : "1480346277000",
+                "from" : {
+                    "emailAddress" : "chris.smith@test.com",
+                    "name" : "Chris Smith 1"
+                },
+                "inbound" : true,
+                "subject" : "RE: Quick Call",
+                "title" : "kate11",
+                
+                "body" : {
+                    "whole" : "\nYes - am free until 3.30.\n\nC.\n",
+                    "body" : "Yes - am free until 3.30.\n\nC.",
+                    "greeting" : "",
+                    "signature" : null,
+                    "signoff" : ""
+                }
+            } 
+        ],
+    },
+    
 }
 
-const getList = (thread_message = testMessages.thread_message, messages = testMessages.messages, filter) => {
+const getList = (messages_unreplied = testMessages.messages_unreplied,filter) => {
 
-    switch(filter){
-        //  THIS SHOULD BE IN CONST LIKE ACTION NAMES
-        case 'LIST_ALL':
-        case 'LIST_THREAD':
-        case 'LIST_CONTACT':
-        case 'LIST_COMPANY':
-        case 'LIST_PERSONAL':
-        case 'LIST_TEAM':
-        default:
-            return messages
-    }
+    return messages_unreplied[filter];
 
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, {filter,title}) => {
     return {
-        messages: getList(state.messages,state.filter)
+        messages_unreplied: getList(state.messages_unreplied,filter),
+        title: title
     }
 }
 
@@ -86,7 +113,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(List)
+export default connect(mapStateToProps, mapDispatchToProps)(List)
