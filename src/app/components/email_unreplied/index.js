@@ -5,6 +5,8 @@ import List from '../../containers/email_unreplied/list'
 
 export default () => {
     return (
+        <div class="lhs-master">
+        <div class="main-view-master">
         <div className="inbox" data-ix="hide-initial-off-600-left">
             <div className="inbox-scrollbox">
                 <div className="v2">
@@ -12,12 +14,16 @@ export default () => {
                         <img className="inbox-image" sizes="68.234375px" src="img/Teal-Logo-outline.png" srcset="images/Teal-Logo-outline-p-500x733.png 500w, images/Teal-Logo-outline-p-800x1173.png 800w, images/Teal-Logo-outline-p-1080x1583.png 1080w, images/Teal-Logo-outline-p-1600x2345.png 1600w, images/Teal-Logo-outline.png 1944w"/>
                         <div className="search-block"></div>
                     </div>
-                    <h4>Today</h4>
-                    <List filter="today"/>
-                    <h4>Yesterday</h4>
-                    <List filter="yesterday"/>   
+                    <div class="inbox-block">
+                        <span class="temp-large">Today</span>
+                        <List filter="today"/>
+                        <span class="temp-large">Yesterday</span>
+                        <List filter="yesterday"/>   
+                    </div>
                 </div>       
             </div>
+            </div>
+        </div>
         </div>
     );
 };
