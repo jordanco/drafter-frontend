@@ -6,6 +6,7 @@ import notifyEvents from '../events/notifyEvents';
 
 export default function configureStore(callback, isBg) {
   let getState;
+  //getStoredState
   if (isBg === undefined) getState = require('./getStoredState'); /* If you don't want to persist states, use './getDefaultState' */// eslint-disable-line max-len
   else getState = (isBg ? require('./getStateToBg') : require('./getStateFromBg'));
 
@@ -28,7 +29,7 @@ export default function configureStore(callback, isBg) {
     } else {
       enhancer = applyMiddleware(...middleware);
     }
-
+    console.log("here called ", initialState);
     const store = createStore(rootReducer, initialState, enhancer);
 
     if (process.env.NODE_ENV !== 'production') {

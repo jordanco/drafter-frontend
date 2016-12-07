@@ -354,3 +354,9 @@ td,
 th {
   padding: 0;
 }
+
+
+span.dismiss:hover {
+  color: red;
+  cursor: pointer;
+}

@@ -1,17 +1,22 @@
-import React, { PropTypes } from 'react'
-import ListItem from './list-item'
+import React, { PropTypes } from 'react';
+import ListItem from './list-item';
 
-const List = ({ messages_unreplied,title }) => (
+const List = ({ messages_unreplied, onDismissClick }) => (
 	<div>
-		{ messages_unreplied.map(message =>
+    { messages_unreplied.filter(message => message.show == true).map(message =>
         <ListItem
-		  key={message.id}
-          title={title}
-          {...message}
+        key={message.id}
+            {...message}
+            onClick={() => onDismissClick(message.id)}
         />
-    	)}
+      )}
 	</div>
 
-)
+);
+
+List.propTypes = {
+  onDismissClick: PropTypes.func.isRequired
+}
+
 
 export default List

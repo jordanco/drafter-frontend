@@ -1,13 +1,22 @@
 import React, { PropTypes } from 'react';
 import {Link} from 'react-router';
+import { FormattedRelative } from 'react-intl';
 
-
-const ListItem = ({ timestamp, from, inbound, title, body, id}) => (
-    <Link to={'/home/email/'+id}>
-		<span className="person-inbox" data-ix="inbox-person-actions-default"> 🎖&nbsp;&nbsp; {from.name? from.name : from.emailAddress}
-			<span data-ix="hide-initial-100-opacity" className="job-title-inbox">2m ago, Unilever, Head of Sales USA </span>
+const ListItem = ({ onClick, timestamp, from, id}) => (
+	<div>
+		<span className="person-inbox" data-ix="inbox-person-actions-default"> 
+			🎖&nbsp;&nbsp; <Link to={'/home/email/'+id}>{from.name? from.name : from.emailAddress} </Link>
 		</span>
-	</Link>
-)
+		<span data-ix="hide-initial-100-opacity" className="job-title-inbox"> (<FormattedRelative value={new Date(parseInt(timestamp))}/>)</span>
+		<span data-ix="hide-initial-100-opacity" className="job-title-inbox dismiss" onClick={onClick}>Dismiss</span>
+		<br/>
+	</div>
+);
+ListItem.propTypes = {
+	onClick: PropTypes.func.isRequired,
+	timestamp: PropTypes.string.isRequired,
+	from: PropTypes.object.isRequired,
+	id: PropTypes.string.isRequired
+}
 
 export default ListItem
