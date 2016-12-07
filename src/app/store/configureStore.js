@@ -29,7 +29,7 @@ export default function configureStore(callback, isBg) {
     } else {
       enhancer = applyMiddleware(...middleware);
     }
-    console.log("here called ", initialState);
+    
     const store = createStore(rootReducer, initialState, enhancer);
 
     if (process.env.NODE_ENV !== 'production') {
