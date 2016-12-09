@@ -2,25 +2,11 @@ import { connect } from 'react-redux';
 import List from '../../components/email_unreplied/list';
 import { dismissEmail } from '../../actions/email-unreplied/list';
 
-console.log(List);
-
-
- let previousState = {
-   visibleTodoFilter: 'SHOW_ALL',
-   todos: [ 
-     {
-       text: 'Read the docs.',
-       complete: false
-     }
-   ]
- }
-
-
 const testMessages = {
     messages_unreplied: [ 
         {
             "id": "528628",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286705764,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
@@ -42,7 +28,7 @@ const testMessages = {
         },
         {
             "id": "123456",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286721005,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
@@ -64,7 +50,7 @@ const testMessages = {
         },
         {
             "id": "654321",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286734466,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
@@ -86,7 +72,7 @@ const testMessages = {
         },
         {
             "id": "678912",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286747828,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
@@ -108,7 +94,7 @@ const testMessages = {
         },
         {
             "id": "2582581",
-            "timestamp" : "1481059813488",
+            "timestamp" : 1481059813488,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith"
@@ -128,7 +114,7 @@ const testMessages = {
         },
         {
             "id": "345678",
-            "timestamp" : "1481059813159",
+            "timestamp" : 1481059813159,
             "from" : {
                 "emailAddress" : "jane@test.com",
                 "name" : "Jane Doe 1"
@@ -150,7 +136,7 @@ const testMessages = {
         },
         {
             "id": "2582582",
-            "timestamp" : "1481059812159",
+            "timestamp" : 1481059812159,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith 1"
@@ -175,20 +161,39 @@ const testMessages = {
 
 const getList = (messages_unreplied = testMessages.messages_unreplied, filter) => {
 
+    let daysDiffCount = 0;
+    if(filter==="today"){
+        daysDiffCount = 1;
+    } else if (filter==="yesterday"){
+        daysDiffCount = 3; // 3 is not the right days difference, but its here because of the static data we are working with
+    }
+
+    let dateNow = new Date().getTime();
+
+
     if(messages_unreplied.length>0){
+
         let groupedMsgs = messages_unreplied.filter(function(email){
-          if(email.when===filter){
-            return email;
-          }
+
+            var timeDiff = dateNow - email.timestamp;
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+            if(diffDays === daysDiffCount){ 
+                return email;
+            }
         });
+
         return groupedMsgs;
     } else {
 
         let groupedMsgs = testMessages.messages_unreplied.filter(function(email){
-          if(email.when===filter){
-            return email;
-          }
+
+            var timeDiff = dateNow - email.timestamp;
+            var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+            if(diffDays === daysDiffCount){ 
+                return email;
+            }
         });
+
         return groupedMsgs;
     }
 
@@ -197,8 +202,7 @@ const getList = (messages_unreplied = testMessages.messages_unreplied, filter) =
 }
 
 const mapStateToProps = (state, {filter}) => {
-    console.log("state: ", state);
-    // state.messages_unreplied = {};
+   
     return {
         messages_unreplied: getList(state.messages_unreplied,filter)
     }

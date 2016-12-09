@@ -2,13 +2,12 @@ const testMessages = {
     messages_unreplied: [ 
         {
             "id": "528628",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286705764,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
             },
             "when": "today",
-            "show": false,
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -25,13 +24,12 @@ const testMessages = {
         },
         {
             "id": "123456",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286721005,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
             },
             "when": "today",
-            "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -48,13 +46,12 @@ const testMessages = {
         },
         {
             "id": "654321",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286734466,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
             },
             "when": "today",
-            "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -71,13 +68,12 @@ const testMessages = {
         },
         {
             "id": "678912",
-            "timestamp" : "1481034413488",
+            "timestamp" : 1481286747828,
             "from" : {
                 "emailAddress" : "jane@test.com",
 
             },
             "when": "yesterday",
-            "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -94,13 +90,12 @@ const testMessages = {
         },
         {
             "id": "2582581",
-            "timestamp" : "1481059813488",
+            "timestamp" : 1481059813488,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith"
             },
             "when": "yesterday",
-            "show": false,
             "inbound" : true,
             "subject" : "RE: Quick Call",
             "title" : "kate11",
@@ -115,13 +110,12 @@ const testMessages = {
         },
         {
             "id": "345678",
-            "timestamp" : "1481059813159",
+            "timestamp" : 1481059813159,
             "from" : {
                 "emailAddress" : "jane@test.com",
                 "name" : "Jane Doe 1"
             },
             "when": "yesterday",
-            "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -138,13 +132,12 @@ const testMessages = {
         },
         {
             "id": "2582582",
-            "timestamp" : "1481059812159",
+            "timestamp" : 1481059812159,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith 1"
             },
             "when": "yesterday",
-            "show": true,
             "inbound" : true,
             "subject" : "RE: Quick Call",
             "title" : "kate11",
@@ -160,7 +153,6 @@ const testMessages = {
         ]
     
 }
-
 export default function list(state = {}, action) {
 
     switch(action.type) {
