@@ -1,6 +1,5 @@
-let INIT_STATE = {
-    messages_unreplied: {  
-        'today':[ 
+const testMessages = {
+    messages_unreplied: [ 
         {
             "id": "528628",
             "timestamp" : "1481034413488",
@@ -8,6 +7,7 @@ let INIT_STATE = {
                 "emailAddress" : "jane@test.com",
 
             },
+            "when": "today",
             "show": false,
             "inbound" : false,
             "subject" : "Quick Call",
@@ -30,6 +30,7 @@ let INIT_STATE = {
                 "emailAddress" : "jane@test.com",
 
             },
+            "when": "today",
             "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
@@ -52,6 +53,7 @@ let INIT_STATE = {
                 "emailAddress" : "jane@test.com",
 
             },
+            "when": "today",
             "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
@@ -74,6 +76,7 @@ let INIT_STATE = {
                 "emailAddress" : "jane@test.com",
 
             },
+            "when": "yesterday",
             "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
@@ -90,12 +93,13 @@ let INIT_STATE = {
             
         },
         {
-            "id": "2582582",
+            "id": "2582581",
             "timestamp" : "1481059813488",
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith"
             },
+            "when": "yesterday",
             "show": false,
             "inbound" : true,
             "subject" : "RE: Quick Call",
@@ -108,9 +112,7 @@ let INIT_STATE = {
                 "signature" : null,
                 "signoff" : ""
             }
-        } 
-        ],
-        'yesterday':[ 
+        },
         {
             "id": "345678",
             "timestamp" : "1481059813159",
@@ -118,6 +120,7 @@ let INIT_STATE = {
                 "emailAddress" : "jane@test.com",
                 "name" : "Jane Doe 1"
             },
+            "when": "yesterday",
             "show": true,
             "inbound" : false,
             "subject" : "Quick Call",
@@ -140,6 +143,7 @@ let INIT_STATE = {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith 1"
             },
+            "when": "yesterday",
             "show": true,
             "inbound" : true,
             "subject" : "RE: Quick Call",
@@ -153,43 +157,45 @@ let INIT_STATE = {
                 "signoff" : ""
             }
         } 
-        ],
-    },
+        ]
     
-};
-const ListAction =  (state, action) => {
-  
-  switch (action.type) {
-    case 'DISMISS_EMAIL':
-      alert("Dismiss email with id: "+action.id);
-      return {
-        ...state,
-        id: action.id,
-        show: false
-
-      }
-
-    default:
-      return state
-  }
 }
 
+export default function list(state = {}, action) {
 
-const list = (state = {}, action) => {
- 
-  switch (action.type) {
+    switch(action.type) {
+        case 'DISMISS_EMAIL' : { 
 
-    case 'DISMISS_EMAIL':
+          if(state.length>0){
 
-      return [
-        ...state,
-        ListAction(state, action)
-      ]
+            let messagesUnrepliedNewState = state.filter(function(email){
+                if(email.id!=action.id){
+                  return email;
+                }
+            });
+            
+            let newStateObject = Object.assign({}, state, {
+              messages_unreplied: messagesUnrepliedNewState
+            });
 
+            return messagesUnrepliedNewState;
 
-    default:
-      return state
-  }
+          } else {
+
+            let messagesUnrepliedNewState = testMessages.messages_unreplied.filter(function(email){
+                if(email.id!=action.id){
+                  return email;
+                }
+            });
+            
+            let newStateObject = Object.assign({}, state, {
+              messages_unreplied: messagesUnrepliedNewState
+            });
+
+            return messagesUnrepliedNewState;
+
+          }
+        } 
+        default : return state;
+    }
 }
-
-export default list

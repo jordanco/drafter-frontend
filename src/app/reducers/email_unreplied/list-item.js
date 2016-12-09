@@ -5,9 +5,7 @@ const ListAction =  (state = {}, action) => {
 			alert("Dismiss email with id: "+action.id);
 			return {
 				...state,
-				id: action.id,
-				show: false
-
+				id: action.id
 			}
 
 		default:

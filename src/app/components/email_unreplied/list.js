@@ -3,7 +3,7 @@ import ListItem from './list-item';
 
 const List = ({ messages_unreplied, onDismissClick }) => (
 	<div>
-    { messages_unreplied.filter(message => message.show == true).map(message =>
+    { messages_unreplied.map(message =>
         <ListItem
         key={message.id}
             {...message}

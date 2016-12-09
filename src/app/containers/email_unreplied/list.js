@@ -4,9 +4,20 @@ import { dismissEmail } from '../../actions/email-unreplied/list';
 
 console.log(List);
 
+
+ let previousState = {
+   visibleTodoFilter: 'SHOW_ALL',
+   todos: [ 
+     {
+       text: 'Read the docs.',
+       complete: false
+     }
+   ]
+ }
+
+
 const testMessages = {
-    messages_unreplied: {  
-        'today':[ 
+    messages_unreplied: [ 
         {
             "id": "528628",
             "timestamp" : "1481034413488",
@@ -14,7 +25,7 @@ const testMessages = {
                 "emailAddress" : "jane@test.com",
 
             },
-            "show": false,
+            "when": "today",
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -36,7 +47,7 @@ const testMessages = {
                 "emailAddress" : "jane@test.com",
 
             },
-            "show": true,
+            "when": "today",
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -58,7 +69,7 @@ const testMessages = {
                 "emailAddress" : "jane@test.com",
 
             },
-            "show": true,
+            "when": "today",
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -80,7 +91,7 @@ const testMessages = {
                 "emailAddress" : "jane@test.com",
 
             },
-            "show": true,
+            "when": "yesterday",
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -96,13 +107,13 @@ const testMessages = {
             
         },
         {
-            "id": "2582582",
+            "id": "2582581",
             "timestamp" : "1481059813488",
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith"
             },
-            "show": false,
+            "when": "yesterday",
             "inbound" : true,
             "subject" : "RE: Quick Call",
             "title" : "kate11",
@@ -114,9 +125,7 @@ const testMessages = {
                 "signature" : null,
                 "signoff" : ""
             }
-        } 
-        ],
-        'yesterday':[ 
+        },
         {
             "id": "345678",
             "timestamp" : "1481059813159",
@@ -124,7 +133,7 @@ const testMessages = {
                 "emailAddress" : "jane@test.com",
                 "name" : "Jane Doe 1"
             },
-            "show": true,
+            "when": "yesterday",
             "inbound" : false,
             "subject" : "Quick Call",
             "title" : "kate",
@@ -146,7 +155,7 @@ const testMessages = {
                 "emailAddress" : "chris.smith@test.com",
                 "name" : "Chris Smith 1"
             },
-            "show": true,
+            "when": "yesterday",
             "inbound" : true,
             "subject" : "RE: Quick Call",
             "title" : "kate11",
@@ -159,22 +168,39 @@ const testMessages = {
                 "signoff" : ""
             }
         } 
-        ],
-    },
+        ]
     
 }
 
 
 const getList = (messages_unreplied = testMessages.messages_unreplied, filter) => {
 
-    return messages_unreplied[filter];
+    if(messages_unreplied.length>0){
+        let groupedMsgs = messages_unreplied.filter(function(email){
+          if(email.when===filter){
+            return email;
+          }
+        });
+        return groupedMsgs;
+    } else {
+
+        let groupedMsgs = testMessages.messages_unreplied.filter(function(email){
+          if(email.when===filter){
+            return email;
+          }
+        });
+        return groupedMsgs;
+    }
+
+    
 
 }
 
-const mapStateToProps = (state, {filter,title}) => {
+const mapStateToProps = (state, {filter}) => {
+    console.log("state: ", state);
+    // state.messages_unreplied = {};
     return {
-        messages_unreplied: getList(state.messages_unreplied,filter),
-        title: title
+        messages_unreplied: getList(state.messages_unreplied,filter)
     }
 }
 
