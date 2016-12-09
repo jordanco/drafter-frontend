@@ -1,5 +1,6 @@
-import { connect } from 'react-redux'
-import List from '../../components/email/list'
+import { connect } from 'react-redux';
+import List from '../../components/email/list';
+import sendEmail from '../../actions/email/reply';
 
 console.log(List);
 
@@ -73,6 +74,7 @@ const getList = (messages = testMessages.messages, filter) => {
 
 
 const mapStateToProps = (state) => {
+    console.log("Contailers email list changed: ", state);
     return {
         messages: getList(state.messages,state.filter)
     }
@@ -80,7 +82,11 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+    return {
+        onSendClick: (id) => {
+            dispatch(sendEmail(id))
+        }
+    }
 }
 
 

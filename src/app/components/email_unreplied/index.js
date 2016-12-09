@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 
-import List from '../../containers/email_unreplied/list'
+import List from '../../containers/email_unreplied/list';
 
 export default () => {
     return (

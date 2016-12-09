@@ -16,7 +16,7 @@ ListItem.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	timestamp: PropTypes.number.isRequired,
 	from: PropTypes.object.isRequired,
-	id: PropTypes.string.isRequired
+	id: PropTypes.number.isRequired
 }
 
 export default ListItem

@@ -1,7 +1,7 @@
 const testMessages = {
     messages_unreplied: [ 
         {
-            "id": "528628",
+            "id": 528628,
             "timestamp" : 1481286705764,
             "from" : {
                 "emailAddress" : "jane@test.com",
@@ -23,7 +23,7 @@ const testMessages = {
             
         },
         {
-            "id": "123456",
+            "id": 123456,
             "timestamp" : 1481286721005,
             "from" : {
                 "emailAddress" : "jane@test.com",
@@ -45,7 +45,7 @@ const testMessages = {
             
         },
         {
-            "id": "654321",
+            "id": 654321,
             "timestamp" : 1481286734466,
             "from" : {
                 "emailAddress" : "jane@test.com",
@@ -67,7 +67,7 @@ const testMessages = {
             
         },
         {
-            "id": "678912",
+            "id": 678912,
             "timestamp" : 1481286747828,
             "from" : {
                 "emailAddress" : "jane@test.com",
@@ -89,7 +89,7 @@ const testMessages = {
             
         },
         {
-            "id": "2582581",
+            "id": 2582581,
             "timestamp" : 1481059813488,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
@@ -109,7 +109,7 @@ const testMessages = {
             }
         },
         {
-            "id": "345678",
+            "id": 345678,
             "timestamp" : 1481059813159,
             "from" : {
                 "emailAddress" : "jane@test.com",
@@ -131,7 +131,7 @@ const testMessages = {
             
         },
         {
-            "id": "2582582",
+            "id": 2582582,
             "timestamp" : 1481059812159,
             "from" : {
                 "emailAddress" : "chris.smith@test.com",
@@ -165,10 +165,6 @@ export default function list(state = {}, action) {
                   return email;
                 }
             });
-            
-            let newStateObject = Object.assign({}, state, {
-              messages_unreplied: messagesUnrepliedNewState
-            });
 
             return messagesUnrepliedNewState;
 
@@ -178,10 +174,6 @@ export default function list(state = {}, action) {
                 if(email.id!=action.id){
                   return email;
                 }
-            });
-            
-            let newStateObject = Object.assign({}, state, {
-              messages_unreplied: messagesUnrepliedNewState
             });
 
             return messagesUnrepliedNewState;
