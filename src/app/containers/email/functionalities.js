@@ -55,7 +55,6 @@ class EmailReply extends Component {
 
 
 const mapStateToProps = (state) => {
-    console.log("Current state: ", state);
     return {
         emailMsg: state.emailMsg,
         messages_unreplied: state.messages_unreplied,

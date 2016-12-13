@@ -153,32 +153,18 @@ const testMessages = {
         ]
     
 }
-export default function list(state = {}, action) {
+export default function list(state = testMessages.messages_unreplied, action) {
 
     switch(action.type) {
         case 'DISMISS_EMAIL' : { 
 
-          if(state.length>0){
-
-            let messagesUnrepliedNewState = state.filter(function(email){
+            const messagesUnrepliedNewState = state.filter(function(email){
                 if(email.id!=action.id){
                   return email;
                 }
             });
 
             return messagesUnrepliedNewState;
-
-          } else {
-
-            let messagesUnrepliedNewState = testMessages.messages_unreplied.filter(function(email){
-                if(email.id!=action.id){
-                  return email;
-                }
-            });
-
-            return messagesUnrepliedNewState;
-
-          }
         } 
         default : return state;
     }
