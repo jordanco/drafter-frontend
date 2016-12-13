@@ -8,7 +8,7 @@ const testMessages = {
             "id": 528628,
             "timestamp" : 1481286705764,
             "from" : {
-                "emailAddress" : "jane@test.com",
+                "emailAddress" : "jane1@test.com",
 
             },
             "when": "today",
@@ -30,7 +30,7 @@ const testMessages = {
             "id": 123456,
             "timestamp" : 1481286721005,
             "from" : {
-                "emailAddress" : "jane@test.com",
+                "emailAddress" : "jane2@test.com",
 
             },
             "when": "today",
@@ -52,7 +52,7 @@ const testMessages = {
             "id": 654321,
             "timestamp" : 1481286734466,
             "from" : {
-                "emailAddress" : "jane@test.com",
+                "emailAddress" : "jane3@test.com",
 
             },
             "when": "today",
@@ -74,7 +74,7 @@ const testMessages = {
             "id": 678912,
             "timestamp" : 1481286747828,
             "from" : {
-                "emailAddress" : "jane@test.com",
+                "emailAddress" : "jane4@test.com",
 
             },
             "when": "yesterday",
@@ -163,9 +163,9 @@ const getList = (messages_unreplied = testMessages.messages_unreplied, filter) =
 
     let daysDiffCount = 0;
     if(filter==="today"){
-        daysDiffCount = 1;
+        daysDiffCount = 4;
     } else if (filter==="yesterday"){
-        daysDiffCount = 3; // 3 is not the right days difference, but its here because of the static data we are working with
+        daysDiffCount = 7; // 3 is not the right days difference, but its here because of the static data we are working with
     }
 
     let dateNow = new Date().getTime();
@@ -202,7 +202,6 @@ const getList = (messages_unreplied = testMessages.messages_unreplied, filter) =
 }
 
 const mapStateToProps = (state, {filter}) => {
-   
     return {
         messages_unreplied: getList(state.messages_unreplied,filter)
     }

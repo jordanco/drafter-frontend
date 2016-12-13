@@ -1,13 +1,13 @@
-export const sendEmail = () => {
-	console.log("send email click");
+export const sendEmail = (text, currentMsgs) => {
 	return {
-		type: 'SEND_EMAIL'
+		type: 'SEND_EMAIL',
+		text,
+		currentMsgs
 	};
 };
 
 
 export const changeEmailContent = (emailContent) => {
-	console.log("changeEmailContent click");
 	return {
 		type: 'CHANGE_EMAIL',
 		emailMsg: emailContent

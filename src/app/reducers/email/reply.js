@@ -1,17 +1,20 @@
+const currentMsgs = {
+  "subject": "Test Subject",
+  "from": "Test from"
+};
+
 export default function emailMsg(state = {}, action) {
 
     switch(action.type) {
         case 'CHANGE_EMAIL' : { 
-
-          console.log('Reducer change email', state, "action: ", action);
-          return action.emailMsg
+          return action.emailMsg;
         }
         case 'SEND_EMAIL' : { 
 
-          console.log('Reducer SEND_EMAIL email', state, "action: ", action);// state is the current textarea value
-          alert(state)
-
-          return state;
+          console.log('Reducer SEND_EMAIL email', state, "action: ", action);
+          // treath msg in action.currentMsg
+          alert(action.text);
+          return action.text;
         }  
         default : return state;
     }
