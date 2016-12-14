@@ -4,3 +4,10 @@ export const dismissEmail = (id) => {
 		id
 	};
 };
+
+export const setActiveEmail = (id) => {
+	return {
+		type: 'SET_ACTIVE_EMAIL',
+		id
+	};
+};

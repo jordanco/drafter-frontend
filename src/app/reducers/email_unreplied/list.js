@@ -150,21 +150,31 @@ const testMessages = {
                 "signoff" : ""
             }
         } 
-        ]
+        ],
+        activeEmail: {}
     
 }
-export default function list(state = testMessages.messages_unreplied, action) {
+export default function list(state = testMessages, action) {
 
     switch(action.type) {
+        case 'SET_ACTIVE_EMAIL': 
+            let emailFound = state.messages_unreplied.filter(function(email){
+                if(email.id==action.id){
+                    return email;
+                };
+            });
+
+            return {...state, activeEmail: emailFound};
+            
         case 'DISMISS_EMAIL' : { 
 
-            const messagesUnrepliedNewState = state.filter(function(email){
+            const messagesUnrepliedNewState = state.messages_unreplied.filter(function(email){
                 if(email.id!=action.id){
                   return email;
                 }
             });
 
-            return messagesUnrepliedNewState;
+            return {...state, messages_unreplied:messagesUnrepliedNewState};
         } 
         default : return state;
     }

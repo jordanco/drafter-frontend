@@ -10,7 +10,8 @@ class EmailReply extends Component {
         this.props.onEmailChange(event.target.value);
     }
     onEmailSend(event){
-        this.props.onSendClick(this.props.emailMsg, this.props.currentMsgs);
+      console.log("Send props: ", this.props);
+        this.props.onSendClick(this.props.emailMsg.text, this.props.emails.activeEmail);
     }
 
   render() {
@@ -19,12 +20,12 @@ class EmailReply extends Component {
            <div className="typebox">
                <div className="w-form">
                    <form data-name="Email Form" id="email-form" name="email-form">
-                        <textarea className="textatea w-input" onChange={ this.onEmailChange.bind(this) } value={ this.props.emailMsg } data-ix="show-suggestions" id="field" maxlength="5000" name="field" placeholder="Type response here" ></textarea>
+                        <textarea className="textatea w-input" onChange={ this.onEmailChange.bind(this) } value={ this.props.emailMsg.text } data-ix="show-suggestions" id="field" maxlength="5000" name="field" placeholder="Type response here" ></textarea>
                    </form>
-                   <div className="w-form-done">
+                   <div className={ this.props.emailMsg.showSuccessMsg? '' : 'w-form-done' }>
                         <div>Thank you! Your submission has been received!</div>
                    </div>
-                   <div className="w-form-fail">
+                   <div className={ this.props.emailMsg.showErrorMsg? '' : 'w-form-fail' }>
                         <div>Oops! Something went wrong while submitting the form</div>
                    </div>
                 </div>
@@ -55,9 +56,10 @@ class EmailReply extends Component {
 
 
 const mapStateToProps = (state) => {
+  console.log("Functionalitites: ", state);
     return {
         emailMsg: state.emailMsg,
-        messages_unreplied: state.messages_unreplied,
+        emails: state.emails,
         currentMsgs: []
     }
 }
@@ -69,8 +71,8 @@ const mapDispatchToProps = (dispatch) => {
         onOpenGmailClick: () => {},
         onOtherClick: () => {},
         onSnoozeClick: () => {},
-        onSendClick: (text, currentMsgs) => {
-            dispatch(sendEmail(text))
+        onSendClick: (text, activeEmail) => {
+            dispatch(sendEmail(text, activeEmail))
         },
         onEmailChange: (text) => {
             dispatch(changeEmailContent(text)) 

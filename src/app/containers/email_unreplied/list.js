@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import List from '../../components/email_unreplied/list';
-import { dismissEmail } from '../../actions/email-unreplied/list';
+import { dismissEmail, setActiveEmail } from '../../actions/email-unreplied/list';
 
 
 const getList = (messages_unreplied = {}, filter) => {
@@ -28,8 +28,9 @@ const getList = (messages_unreplied = {}, filter) => {
 }
 
 const mapStateToProps = (state, {filter}) => {
+    console.log("current state: ", state);
     return {
-        messages_unreplied: getList(state.messages_unreplied,filter)
+        messages_unreplied: getList(state.emails.messages_unreplied,filter)
     }
 }
 
@@ -38,7 +39,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onDismissClick: (id) => {
             dispatch(dismissEmail(id))
+        },
+        onEmailClick: (id) => {
+            dispatch(setActiveEmail(id))
         }
+
     }
 }
 

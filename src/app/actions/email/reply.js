@@ -1,8 +1,14 @@
-export const sendEmail = (text, currentMsgs) => {
+export const sendEmail = (text, activeEmail) => {
+
+
+
+	// send to API and wait for answer
+	// dispatch SUCCESS or FAILURE action and remove email from list on success
+
 	return {
 		type: 'SEND_EMAIL',
 		text,
-		currentMsgs
+		activeEmail
 	};
 };
 
@@ -10,7 +16,7 @@ export const sendEmail = (text, currentMsgs) => {
 export const changeEmailContent = (emailContent) => {
 	return {
 		type: 'CHANGE_EMAIL',
-		emailMsg: emailContent
+		emailMsg: { text: emailContent }
 
 	};
 };
