@@ -16,9 +16,9 @@ class EmailReply extends Component {
     //   this.props.emailMsg.showLoader = false;
     // }
 
-    componentDidUpdate(){
-      console.log("This update called props: ", this.props);
-    }
+    // componentDidUpdate(){
+    //   console.log("This update called props: ", this.props);
+    // }
 
   render() {
     return (
@@ -65,6 +65,7 @@ class EmailReply extends Component {
 
 
 const mapStateToProps = (state) => {
+  console.log("Map state to props: ", state);
     return {
         emailMsg: state.emailMsg,
         emails: state.emails,
