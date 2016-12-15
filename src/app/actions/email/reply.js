@@ -13,6 +13,17 @@ export const sendEmail = (text, activeEmail) => {
 		dispatch(sendEmailRequest(currentEmail.id))
 
 		// API
+		// API.post({
+		// 	url: '/url123',
+		// 	data: { currentEmail },
+		// 	success: (response) => {
+		// 		dispatch(emailSentSuccess(currentEmail.id))
+		// 		dispatch(dismissEmail(currentEmail.id))	
+		// 	},
+		// 	error: (response) => {
+		// 		dispatch(emailSentError(currentEmail.id))
+		// 	}
+		// });
 
 		// INSIDE
 		let success = true;
