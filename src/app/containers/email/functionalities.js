@@ -10,14 +10,20 @@ class EmailReply extends Component {
         this.props.onEmailChange(event.target.value);
     }
     onEmailSend(event){
-      console.log("Send props: ", this.props);
-        this.props.onSendClick(this.props.emailMsg.text, this.props.emails.activeEmail);
+      this.props.onSendClick(this.props.emailMsg.text, this.props.emails.activeEmail);
+    }
+
+    componentDidUpdate(){
+      console.log("This update called props: ", this.props);
     }
 
   render() {
     return (
        <div className="editor">
            <div className="typebox">
+              <div className={ this.props.emailMsg.showLoader? '' : 'w-form-done' }>
+                <div>This is loader</div>
+              </div>
                <div className="w-form">
                    <form data-name="Email Form" id="email-form" name="email-form">
                         <textarea className="textatea w-input" onChange={ this.onEmailChange.bind(this) } value={ this.props.emailMsg.text } data-ix="show-suggestions" id="field" maxlength="5000" name="field" placeholder="Type response here" ></textarea>
@@ -31,16 +37,16 @@ class EmailReply extends Component {
                 </div>
             </div>
             <div className="editor-buttons">
-                <div className="connect-button offset"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
+                <div className="connect-button offset hidden-elements"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
                     <div>Templates</div>
                 </div>
-                <div className="connect-button offset-2"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
+                <div className="connect-button offset-2 hidden-elements"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
                     <div>Open in Gmail</div>
                 </div>
-                <div className="connect-button"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
+                <div className="connect-button hidden-elements"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
                     <div>Other</div>
                 </div>
-                <div className="connect-button"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
+                <div className="connect-button hidden-elements"><img className="li-connect-image" src="https://d3e54v103j8qbb.cloudfront.net/img/image-placeholder.svg"/>
                     <div>Snooze</div>
                 </div>
                 <div className="connect-button" onClick={ this.onEmailSend.bind(this) }>
@@ -56,7 +62,6 @@ class EmailReply extends Component {
 
 
 const mapStateToProps = (state) => {
-  console.log("Functionalitites: ", state);
     return {
         emailMsg: state.emailMsg,
         emails: state.emails,

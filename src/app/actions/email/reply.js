@@ -1,15 +1,34 @@
+import { dismissEmail } from '../email-unreplied/list';
+
 export const sendEmail = (text, activeEmail) => {
 
+ 	// CREATE EMAIL OBJECT FOR SENDING
+ 	let currentEmail = activeEmail[0];
+ 	let emailForSending = {
+ 		'to': currentEmail.from,
+ 		'subject': currentEmail.subject
+ 	}
 
+	return dispatch => {
+		dispatch(sendEmailRequest(currentEmail.id))
 
-	// send to API and wait for answer
-	// dispatch SUCCESS or FAILURE action and remove email from list on success
+		// API
 
-	return {
-		type: 'SEND_EMAIL',
-		text,
-		activeEmail
-	};
+		// INSIDE
+		let success = true;
+
+		if(success){
+			setTimeout(function() {
+				return dispatch(dismissEmail(currentEmail.id))	
+			},  3000);
+		} else {
+			setTimeout(function() {
+				return dispatch(emailSentError(currentEmail.id))	
+			}, 3000);
+		}
+
+	}
+
 };
 
 
@@ -18,5 +37,17 @@ export const changeEmailContent = (emailContent) => {
 		type: 'CHANGE_EMAIL',
 		emailMsg: { text: emailContent }
 
+	};
+};
+
+export const sendEmailRequest = (id) => {
+	return {
+		type: 'EMAIL_SENDING'
+	};
+};
+
+export const emailSentError = (id) => {
+	return {
+		type: 'EMAIL_SENT_ERROR'
 	};
 };

@@ -11,7 +11,7 @@ export default (props) => {
         <div className="messaging" data-ix="hide-initial-off-600-left">
           <Info/>
           <div className="conversation">
-            <Filter />
+            <Filter/>
             <List />
           </div>
           <EmailFunctionalities />

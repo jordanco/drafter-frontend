@@ -360,3 +360,7 @@ span.dismiss:hover {
   color: red;
   cursor: pointer;
 }
+
+.hidden-elements, .hidden-elements * {
+  display: none !important;
+}

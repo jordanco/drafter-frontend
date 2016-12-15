@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const Info = ({ sender }) => (
-    <div className="profile">
+    <div className="profile hidden-elements">
         <div className="profile---jb">
           <div className="side-profile">
             <img className="profile-image" src="img/128-7.jpg"/>

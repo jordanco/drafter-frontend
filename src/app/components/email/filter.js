@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const Filter = () => (
-     <div className="toggles-1">
+     <div className="toggles-1 hidden-elements">
         <div className="toggles-1-a">
           <div className="thread-view-button">Thread</div>
           <div className="contact-view-button">Contact</div>
