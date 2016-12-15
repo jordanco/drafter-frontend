@@ -1,4 +1,4 @@
-export default function emailMsg(state = {}, action) {
+export default function emailMsg(state = {showLoader: false}, action) {
 
   switch(action.type) {
     case 'CHANGE_EMAIL' : { 

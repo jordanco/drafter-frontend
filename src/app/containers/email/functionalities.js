@@ -12,6 +12,9 @@ class EmailReply extends Component {
     onEmailSend(event){
       this.props.onSendClick(this.props.emailMsg.text, this.props.emails.activeEmail);
     }
+    // componentDidMount(){
+    //   this.props.emailMsg.showLoader = false;
+    // }
 
     componentDidUpdate(){
       console.log("This update called props: ", this.props);
@@ -21,8 +24,8 @@ class EmailReply extends Component {
     return (
        <div className="editor">
            <div className="typebox">
-              <div className={ this.props.emailMsg.showLoader? '' : 'w-form-done' }>
-                <div>This is loader</div>
+              <div className={ this.props.emailMsg.showLoader? '' : 'hidden-elements' }>
+                <div>Loading...</div>
               </div>
                <div className="w-form">
                    <form data-name="Email Form" id="email-form" name="email-form">

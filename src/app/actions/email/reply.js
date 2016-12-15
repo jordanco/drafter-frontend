@@ -19,11 +19,12 @@ export const sendEmail = (text, activeEmail) => {
 
 		if(success){
 			setTimeout(function() {
-				return dispatch(dismissEmail(currentEmail.id))	
+				dispatch(emailSentSuccess(currentEmail.id))
+				dispatch(dismissEmail(currentEmail.id))	
 			},  3000);
 		} else {
 			setTimeout(function() {
-				return dispatch(emailSentError(currentEmail.id))	
+				dispatch(emailSentError(currentEmail.id))	
 			}, 3000);
 		}
 
@@ -37,6 +38,12 @@ export const changeEmailContent = (emailContent) => {
 		type: 'CHANGE_EMAIL',
 		emailMsg: { text: emailContent }
 
+	};
+};
+
+export const emailSentSuccess = () => {
+	return {
+		type: 'EMAIL_SENT_SUCCESS'
 	};
 };
 
